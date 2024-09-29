@@ -1,0 +1,28 @@
+from collections import Counter
+singers=list(map(int,input().split()))
+count=Counter(singers)
+max_frequency=max(count.values())
+cnt=0
+for value in count:
+  if value==max_frequency:
+      cnt=cnt+1
+
+print(cnt)
+
+
+# first we use cpunter function fom collections module
+# we make list named singers and use map which includes a bracket, inside bracket before comma we use the function and after comma we use the way to
+# enter values (in this case int is the function and input is how we enter the numbers)
+# then we make a dict using Counter function out of singers list
+# Now we the singer which is streamed most which we make using max function of the values of count 
+# Now we have made an variable name cnt to keep count of the most streamed singers( in case there are more than one singer with same amount of stream count)
+# we use for loop which will go through list singers 
+# here is how it works:
+# let there be 5 singers arijit:200 mika:40 jubin:150 sonu:180 ed:200
+# here maximum frequency frequency=200
+# here for will first see arjit it has frquency of 200 which is equal to max_frequency thus 1 will be added to cnt
+# now it will proceed to mika which does not have frequency equal to 200, thus it will ignore it and cnt will remain 1
+# now sam happens with jubin and sonu
+# now loop has reached ed which also have the frequency of streams equal to max_frequency ie. 200 so it will add 1 to cnt making it 2
+# final result: it prints 2 which is the most streamed singers also the favourite singers
+#
