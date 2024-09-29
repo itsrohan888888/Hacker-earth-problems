@@ -1,0 +1,48 @@
+import numpy as np
+def func():
+    t=int(input())
+    results=[]
+#we made a variable t which will take input of no.of test cases
+# a list name results is also left empty
+    for _ in range(t):
+# here _ is used to use the loop withut an variable and just repeat t times 
+# it will ask for test cases t times
+        n,m=map(int,input().split()
+# here n is no.of rows and m is number of columns
+
+        matrix=[input() for _ in range(n)]
+# we make matrix, just as before here _ will pass the use of any variable and it will ask for input n times ie n rows
+
+        np_matrix=np.array([[1 if cell==# else 0 for cell in row]for row in matrix])
+# here it will replace #(black) with 1 and .(white) with 0 in ordr to use these in flow controls
+
+        max_border=0
+# we create an ultimate variable that will have the maximum number of black consecutively
+        for row in matrix:
+          count=0
+          max_row_border=0
+
+# max_row_border is the varible that will hold no.of consecutively black in row only
+          for cell in row:
+             if cell==1:
+               count=count+1
+             else :
+               max_row_border=max(max_row_border,count)
+# here max_row_border=0 and count=0 thus they are equal if"if statement" is not satisfied
+               count=0
+            max_row_border=max(max_row_border,count)
+# as this is out of else statement here count=1 and max_row_border=0, so max_row_border will be assigned value of 1
+            max_border=max(max_row_border,max_border)
+         For col in range(m):
+            count=0
+            max_col_border=0
+# variable made for maximum no.of conse cutively black for a column only
+            for row in range(n):
+                if np_matrix[row,col]==1:
+                    count=count+1
+                else:
+                    max_col_border=max(max_col_border,count)
+                    count=0
+            max_border=max(max_border, max_col_border)
+        results.append(max_border)
+func()
